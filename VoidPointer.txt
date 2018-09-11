@@ -1,0 +1,66 @@
+A pointer to void is a general purpose pointer used to hold reference to hold
+any data type.
+
+void *pv;
+
+It has two interesting properties:
+1> A pointer to void will have the same representation and memory alignment 
+as a pointer to char
+2> A pointer to void will never be equal to another pointer.However, two void 
+pointers assigned NULL values will be equal.
+
+If a pointer is declared as global or static, it is initalized to NULL when the program starts.
+
+malloc function is defined as 
+void* malloc(size_t)
+
+Calloc Function
+
+void *calloc(size_t numElements, size_t elementSize);
+
+The calloc function will allocate and clear memory at the same time.
+To clear memory means it contents are set to all binary zeros.
+
+we can also use memset that is in string.h header it require 3 arguments
+pointer,value to fill, number of bytes to fill.
+
+realloc function
+defined as void *realloc(void *ptr,size_t size);
+
+The realloc function will reallocate memory.
+The function realloc returns a pointer to a block of memory.
+The function takes two arguments. The first is a pointer to the original block,
+and the second is the requested size.
+The reallocated memory block's size will be different from the size of the 
+block referenced by the first argument. The return value is a pointer to the 
+reallocated memory memory.
+
+Deallocating memory using the free function
+
+void free(void *ptr);
+
+The pointer argument should contain the address of memory allocated by a 
+malloc type function. This is returned to the heap.
+
+**********************************************************
+If the free function is passed a null pointer, then it is
+normally does nothing. If the pointer passed has been 
+allocated by other than a malloc type function, then the 
+function behaviour is undefined.
+
+eg: 
+
+int num;
+int *pi = &num;
+
+free(pi)        //Undefined Behaviour....
+**********************************************************
+
+when two pointer references to the same location, it is refered to as 
+Aliasing.
+
+
+Function Pointer Variable
+
+void (*foo)();
+*foo is function pointer variable taking void and returning void...
