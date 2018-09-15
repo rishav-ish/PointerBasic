@@ -68,6 +68,7 @@ void main(){
        case 3:
              system("clear");
              writefile(people);
+             system("clear");
              break;
 
        case 4:
@@ -165,9 +166,12 @@ void writefile(People *people){
    file = fopen(url,"w");
 
    while(people!=NULL){
-       fprintf(file,"%s\nAge %d\nSalary %.2f\n",people->name,people->age,people->salary);
+       fprintf(file,"\n%s\nAge %d\nSalary %.2f\n",people->name,people->age,people->salary);
        people = people->link;
   }
+
+  printf("\nFile has been created\nPress key to go back ");
+  getch();
 
   fclose(file);
 }
