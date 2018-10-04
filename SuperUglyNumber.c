@@ -10,6 +10,7 @@ void operation(int);
 void initSet();
 void check(unsigned long);
 void checkPrime();
+void bubbleSort();
 char getch();
 
 //int *arr;
@@ -52,6 +53,7 @@ void initSet(){
                scanf("%d",&set[i]);
 
      checkPrime();
+     bubbleSort();
 }
 
 
@@ -192,6 +194,24 @@ void checkPrime(){
           initSet();
     }
 
+}
+
+
+void bubbleSort(){
+    int i,j,temp;
+
+
+    for(i=0;i<setSize-1;i++){
+          for(j=0;j<setSize-i-1;j++){
+             if(set[j]>set[j+1]){
+               temp = set[j];
+               set[j] = set[j+1];
+               set[j+1] = temp;
+            }
+          }
+    }
+
+    
 }
 
 
